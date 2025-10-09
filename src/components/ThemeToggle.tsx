@@ -5,6 +5,7 @@ import { cn } from "../lib/utils";
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // get theme on refresh
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
@@ -30,7 +31,7 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed max-sm:hidden top-5 right-5 z-50 p-2 duration-300",
+        "fixed max-sm:hidden top-4 right-5 z-50 p-2 duration-300",
         "focus:outline-hidden rounded-full transition-colors"
       )}
     >

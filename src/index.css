@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* root */
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -12,7 +20,6 @@
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
-  --animate-fade-in: fade-in 0.7s ease-out forwards;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
   --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
   --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
@@ -120,10 +127,10 @@
     max-width: 1024px;
   }
   @media (width >= 1280px) {
-    max-width: 1280px;
+    max-width: 1180px;
   }
   @media (width >= 1400px) {
-    max-width: 1400px;
+    max-width: 1200px;
   }
 }
 
@@ -155,12 +162,4 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
-}
-
-/* root */
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
 }
