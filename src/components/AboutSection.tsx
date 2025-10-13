@@ -1,5 +1,4 @@
 import { Briefcase, Code, User } from "lucide-react";
-import { Link } from "react-router";
 
 const AboutSection = () => {
   return (
@@ -28,16 +27,16 @@ const AboutSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <Link to={"#contact"} className="cosmic-button">
+              <a href="#contact" className="cosmic-button">
                 Kontakt
-              </Link>
+              </a>
 
-              <Link
+              {/* <Link
                 to={""}
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Pobierz CV
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -72,7 +71,7 @@ const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h6 w-6  text-primary" />
+                  <Briefcase className="h6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">

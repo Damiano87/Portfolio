@@ -45,13 +45,13 @@ const Navbar = () => {
         {/* desktop nav */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, index) => (
-            <Link
-              to={item.href}
+            <a
+              href={item.href}
               key={index}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -76,14 +76,14 @@ const Navbar = () => {
         >
           <div className="flex flex-col md:hidden space-y-8 text-xl">
             {navItems.map((item, index) => (
-              <Link
-                to={item.href}
+              <a
+                href={item.href}
                 key={index}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
