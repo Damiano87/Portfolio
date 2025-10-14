@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router";
+import { motion } from "motion/react";
 
 const projects = [
   {
@@ -62,8 +63,20 @@ const ProjectsSection = () => {
 
         <div className="grid items-start md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{
+                translateY: 20,
+                opacity: 0,
+              }}
+              whileInView={{
+                translateY: 0,
+                opacity: 1,
+                transition: {
+                  duration: 5,
+                  delay: index === 1 ? 0.5 : index === 2 ? 1 : 0,
+                },
+              }}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
               <div className="h-48 overflow-hidden">
@@ -109,7 +122,7 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

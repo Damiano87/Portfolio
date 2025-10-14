@@ -1,9 +1,23 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router";
+import { motion } from "motion/react";
 
 const ContactInfo = () => {
   return (
-    <div className="space-y-8">
+    <motion.div
+      initial={{
+        translateX: -20,
+        rotate: -45,
+        opacity: 0,
+      }}
+      whileInView={{
+        translateX: 0,
+        opacity: 1,
+        rotate: 0,
+        transition: { duration: 2 },
+      }}
+      className="space-y-8"
+    >
       <h3 className="text-2xl font-semibold mb-6">Informacje kontaktowe</h3>
 
       <div className="space-y-6 justify-center">
@@ -55,7 +69,7 @@ const ContactInfo = () => {
 
       {/* Social media */}
       {/* <SocialMedia /> */}
-    </div>
+    </motion.div>
   );
 };
 export default ContactInfo;

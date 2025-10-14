@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { cn } from "../../lib/utils";
 import { Send } from "lucide-react";
 import { useActionState } from "react";
+import { motion } from "motion/react";
 
 type ActionState = {
   status: "idle" | "success" | "error";
@@ -62,7 +63,20 @@ const ContactForm = () => {
   });
 
   return (
-    <div className="bg-card p-8 rounded-lg shadow-xs">
+    <motion.div
+      initial={{
+        translateX: 20,
+        rotate: 45,
+        opacity: 0,
+      }}
+      whileInView={{
+        translateX: 0,
+        opacity: 1,
+        rotate: 0,
+        transition: { duration: 2 },
+      }}
+      className="bg-card p-8 rounded-lg shadow-xs"
+    >
       <Toaster />
       <h3 className="text-2xl font-semibold mb-6">Wyślij wiadomość</h3>
 
@@ -127,7 +141,7 @@ const ContactForm = () => {
           <Send size={16} />
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 export default ContactForm;

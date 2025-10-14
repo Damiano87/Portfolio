@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+import { LanguageContext } from "../context/createLanguageContext";
 
 const Navbar = () => {
+  const { t } = use(LanguageContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // get and array of nav items
+  const navItems = Object.values(t.nav);
+
+  // change navbar style on scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.screenY > 10);

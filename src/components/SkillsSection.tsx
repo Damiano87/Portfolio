@@ -1,25 +1,42 @@
 import { useState } from "react";
 import { cn } from "../lib/utils";
+import { motion } from "motion/react";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiSass,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiGithub,
+  SiClaude,
+} from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 const skills = [
   // Frontend
-  { name: "HTML/CSS", category: "frontend" },
-  { name: "Javascript", category: "frontend" },
-  { name: "React", category: "frontend" },
-  { name: "Typescript", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-  { name: "Sass", category: "frontend" },
-  { name: "Next.js", category: "frontend" },
+  { name: "HTML/CSS", category: "frontend", icon: SiHtml5 },
+  { name: "Javascript", category: "frontend", icon: SiJavascript },
+  { name: "React", category: "frontend", icon: SiReact },
+  { name: "Typescript", category: "frontend", icon: SiTypescript },
+  { name: "Tailwind CSS", category: "frontend", icon: SiTailwindcss },
+  { name: "Sass", category: "frontend", icon: SiSass },
+  { name: "Next.js", category: "frontend", icon: SiNextdotjs },
 
   // Backend
-  { name: "Node.js", category: "backend" },
-  { name: "Express", category: "backend" },
-  { name: "MongoDB", category: "backend" },
+  { name: "Node.js", category: "backend", icon: SiNodedotjs },
+  { name: "Express", category: "backend", icon: SiExpress },
+  { name: "MongoDB", category: "backend", icon: SiMongodb },
 
   // Tools
-  { name: "Git/GitHub", category: "tools" },
-  { name: "VS Code", category: "tools" },
-  { name: "Claude AI", category: "tools" },
+  { name: "Git/GitHub", category: "tools", icon: SiGithub },
+  { name: "VS Code", category: "tools", icon: VscVscode },
+  { name: "Claude AI", category: "tools", icon: SiClaude },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
@@ -56,18 +73,35 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
-            >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
+        <motion.div
+          initial={{
+            translateY: 20,
+            opacity: 0,
+          }}
+          whileInView={{
+            translateY: 0,
+            opacity: 1,
+            transition: { duration: 2 },
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {filteredSkills.map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+              <div
+                key={index}
+                title={skill.name}
+                className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              >
+                <div className="flex items-center gap-4">
+                  <h3 className="font-semibold text-lg">{skill.name}</h3>
+                  <Icon size={25} />
+                  {skill.name === "HTML/CSS" && <SiCss3 size={25} />}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
