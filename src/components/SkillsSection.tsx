@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { cn } from "../lib/utils";
 import { motion } from "motion/react";
 import {
@@ -17,6 +17,7 @@ import {
   SiClaude,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { LanguageContext } from "../context/createLanguageContext";
 
 const skills = [
   // Frontend
@@ -39,21 +40,33 @@ const skills = [
   { name: "Claude AI", category: "tools", icon: SiClaude },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
-
 const SkillsSection = () => {
+  const { language, t } = use(LanguageContext);
+
   const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = ["all", "frontend", "backend", "tools"];
 
   // filter skills
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
 
+  // translate specific categories ("all" and "tools")
+  const translateCategories = (category: string): string => {
+    if (language === "pl") {
+      if (category === "all") return "wszystkie";
+      if (category === "tools") return "narzędzia";
+    }
+    return category;
+  };
+
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Moje <span className="text-primary">umiejętności</span>
+          {t.skills.titlePart1}{" "}
+          <span className="text-primary">{t.skills.titlePart2}</span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -68,7 +81,7 @@ const SkillsSection = () => {
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
             >
-              {category}
+              {translateCategories(category)}
             </button>
           ))}
         </div>

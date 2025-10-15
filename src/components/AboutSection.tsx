@@ -1,12 +1,16 @@
 import { Briefcase, Code, User } from "lucide-react";
 import { motion } from "motion/react";
+import { use } from "react";
+import { LanguageContext } from "../context/createLanguageContext";
 
 const AboutSection = () => {
+  const { t } = use(LanguageContext);
+
   return (
     <section id="about" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          O <span className="text-primary">mnie</span>
+          {t.aboutMe.about} <span className="text-primary">{t.aboutMe.me}</span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -22,25 +26,15 @@ const AboutSection = () => {
             }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold">
-              Passionate Web Developer and Tech Creator
-            </h3>
+            <h3 className="text-2xl font-semibold">{t.aboutMe.title}</h3>
 
-            <p className="text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              optio autem magnam voluptates, cupiditate commodi qui doloremque
-              maiores eligendi odio tempora voluptatibus. Maiores, qui.
-            </p>
+            <p className="text-muted-foreground">{t.aboutMe.firstParagraph}</p>
 
-            <p className="text-muted-foreground">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              rerum harum quisquam facilis at natus, ratione sint praesentium
-              error! Quidem obcaecati itaque harum ut.
-            </p>
+            <p className="text-muted-foreground">{t.aboutMe.secondParagraph}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
-                Kontakt
+                {t.aboutMe.contact}
               </a>
 
               {/* <Link
@@ -71,10 +65,7 @@ const AboutSection = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg"> Web Development</h4>
-                  <p className="text-muted-foreground">
-                    Tworzenie responsywnych stron i aplikacji webowych za pomocą
-                    nowoczesnych frameworków.
-                  </p>
+                  <p className="text-muted-foreground">{t.aboutMe.firstCard}</p>
                 </div>
               </div>
             </div>
@@ -86,7 +77,7 @@ const AboutSection = () => {
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">UI/UX Design</h4>
                   <p className="text-muted-foreground">
-                    Projektowanie intuicyjnych interfejsów użytkownika
+                    {t.aboutMe.secondCard}
                   </p>
                 </div>
               </div>
@@ -98,12 +89,9 @@ const AboutSection = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">
-                    Zarządanie projektami
+                    {t.aboutMe.thirdCardTitle}
                   </h4>
-                  <p className="text-muted-foreground">
-                    Tworzenie responsywnych stron i aplikacji webowych za pomocą
-                    nowoczesnych frameworków.
-                  </p>
+                  <p className="text-muted-foreground">{t.aboutMe.thirdCard}</p>
                 </div>
               </div>
             </div>

@@ -12,11 +12,13 @@ import ThemeToggle from "../components/ThemeToggle";
 const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Language Toggle */}
-      <LanguageToggle />
-      {/* Theme Toggle */}
-      <ThemeToggle />
-      {/* Background Effects */}
+      <div className="fixed top-4 right-5 z-50 flex items-center">
+        {/* Language Toggle */}
+        <LanguageToggle />
+        {/* Theme Toggle */}
+        <ThemeToggle />
+        {/* Background Effects */}
+      </div>
       <StarBackground />
       {/* Navbar */}
       <Navbar />

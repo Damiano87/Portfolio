@@ -5,7 +5,9 @@ import { Menu, X } from "lucide-react";
 import { LanguageContext } from "../context/createLanguageContext";
 
 const Navbar = () => {
+  // language context
   const { t } = use(LanguageContext);
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

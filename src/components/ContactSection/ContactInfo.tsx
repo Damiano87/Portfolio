@@ -1,8 +1,12 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import { use } from "react";
+import { LanguageContext } from "../../context/createLanguageContext";
 
 const ContactInfo = () => {
+  const { t } = use(LanguageContext);
+
   return (
     <motion.div
       initial={{
@@ -18,7 +22,7 @@ const ContactInfo = () => {
       }}
       className="space-y-8"
     >
-      <h3 className="text-2xl font-semibold mb-6">Informacje kontaktowe</h3>
+      <h3 className="text-2xl font-semibold mb-6">{t.contact.contactInfo}</h3>
 
       <div className="space-y-6 justify-center">
         {/* Email */}
@@ -43,7 +47,7 @@ const ContactInfo = () => {
             <Phone className="h-6 w-6 text-primary" />
           </div>
           <div>
-            <h4 className="font-medium">Telefon</h4>
+            <h4 className="font-medium">{t.contact.phone}</h4>
             <Link
               to={"tel:+48576849588"}
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -59,9 +63,9 @@ const ContactInfo = () => {
             <MapPin className="h-6 w-6 text-primary" />
           </div>
           <div>
-            <h4 className="font-medium">Miejsce zamieszkania</h4>
+            <h4 className="font-medium">{t.contact.location}</h4>
             <span className="text-muted-foreground hover:text-primary transition-colors">
-              Rzeszów, Polska
+              Rzeszów, {t.contact.country}
             </span>
           </div>
         </div>

@@ -2,8 +2,9 @@ import toast, { Toaster } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { cn } from "../../lib/utils";
 import { Send } from "lucide-react";
-import { useActionState } from "react";
+import { use, useActionState } from "react";
 import { motion } from "motion/react";
+import { LanguageContext } from "../../context/createLanguageContext";
 
 type ActionState = {
   status: "idle" | "success" | "error";
@@ -57,6 +58,8 @@ async function sendEmail(
 }
 
 const ContactForm = () => {
+  const { t } = use(LanguageContext);
+
   const [, formAction, isPending] = useActionState(sendEmail, {
     status: "idle",
     error: null,
@@ -78,14 +81,14 @@ const ContactForm = () => {
       className="bg-card p-8 rounded-lg shadow-xs"
     >
       <Toaster />
-      <h3 className="text-2xl font-semibold mb-6">Wyślij wiadomość</h3>
+      <h3 className="text-2xl font-semibold mb-6">{t.contact.sendMessage}</h3>
 
       <form className="space-y-6" action={formAction}>
         {/* Name */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-2">
             {" "}
-            Twoje imię
+            {t.contact.yourName}
           </label>
           <input
             type="text"
@@ -93,7 +96,7 @@ const ContactForm = () => {
             name="name"
             required
             className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-            placeholder="Twoje imię..."
+            placeholder={t.contact.namePlaceholder}
           />
         </div>
 
@@ -101,7 +104,7 @@ const ContactForm = () => {
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2">
             {" "}
-            Twój email
+            {t.contact.yourEmail}
           </label>
           <input
             type="email"
@@ -109,7 +112,7 @@ const ContactForm = () => {
             name="email"
             required
             className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-            placeholder="jan@gmail.com"
+            placeholder={t.contact.emailPlaceholder}
           />
         </div>
 
@@ -117,14 +120,14 @@ const ContactForm = () => {
         <div>
           <label htmlFor="message" className="block text-sm font-medium mb-2">
             {" "}
-            Twoja wiadomość
+            {t.contact.yourMessage}
           </label>
           <textarea
             id="message"
             name="message"
             required
             className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
-            placeholder="Cześć, chcę porozmawiać o..."
+            placeholder={t.contact.messagePlaceholder}
           />
         </div>
 
@@ -137,7 +140,7 @@ const ContactForm = () => {
             isPending ? "opacity-70 cursor-not-allowed" : ""
           )}
         >
-          {isPending ? "Wysyłanie..." : "Wyślij wiadomość"}
+          {isPending ? t.contact.sendingMessage : t.contact.sendMessage}
           <Send size={16} />
         </button>
       </form>

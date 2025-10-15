@@ -1,6 +1,10 @@
 import { ArrowDown } from "lucide-react";
+import { use } from "react";
+import { LanguageContext } from "../context/createLanguageContext";
 
 const HeroSection = () => {
+  const { t } = use(LanguageContext);
+
   return (
     <section
       id="hero"
@@ -9,9 +13,7 @@ const HeroSection = () => {
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in">
-              Cześć, nazywam się
-            </span>
+            <span className="opacity-0 animate-fade-in">{t.hero.title}</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" "}
               Damian
@@ -23,21 +25,21 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            assumenda quas magnam dolores blanditiis tenetur molestias aperiam
-            dolorum eius pariatur totam nulla, nisi quo.
+            {t.hero.subtitle}
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">
-              Zobacz moje projekty
+              {t.hero.projectsBtn}
             </a>
           </div>
         </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2"> Przewiń </span>
+        <span className="text-sm text-muted-foreground mb-2">
+          {t.hero.scrollDown}
+        </span>
         <ArrowDown className="h-5 w-5 text-primary" />
       </div>
     </section>

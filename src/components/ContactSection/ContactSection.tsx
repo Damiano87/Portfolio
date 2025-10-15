@@ -1,17 +1,21 @@
+import { use } from "react";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
+import { LanguageContext } from "../../context/createLanguageContext";
 
 const ContactSection = () => {
+  const { t } = use(LanguageContext);
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Skontaktuj się <span className="text-primary">ze mną</span>
+          {t.contact.titlePart1}{" "}
+          <span className="text-primary">{t.contact.titlePart2}</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
+          {t.contact.subtitle}
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">

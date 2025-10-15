@@ -1,6 +1,8 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import { use } from "react";
+import { LanguageContext } from "../context/createLanguageContext";
 
 const projects = [
   {
@@ -49,16 +51,18 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const { t } = use(LanguageContext);
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Moje <span className="text-primary">Projekty</span>
+          {t.projects.titlePart1}{" "}
+          <span className="text-primary">{t.projects.titlePart2}</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance and user experience.
+          {t.projects.subtitle}
         </p>
 
         <div className="grid items-start md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -132,7 +136,7 @@ const ProjectsSection = () => {
             target="_blank"
             className="cosmic-button w-fit flex items-center gap-2 mx-auto"
           >
-            Mój Github <ArrowRight size={16} />
+            {t.projects.myGithub} <ArrowRight size={16} />
           </Link>
         </div>
       </div>
