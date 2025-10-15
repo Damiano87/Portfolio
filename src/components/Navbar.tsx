@@ -37,7 +37,7 @@ const Navbar = () => {
           to={"#hero"}
           className="text-xl font-bold text-primary flex items-center"
         >
-          <span className="relative z-10">
+          <span className="hidden md:block relative z-10">
             <span className="text-glow text-foreground">Damian</span> Portfolio
           </span>
         </Link>
