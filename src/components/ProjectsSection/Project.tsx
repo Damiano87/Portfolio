@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { ProjectType } from "./ProjectsList";
+import { SiGithub } from "react-icons/si";
 
 type ProjectProps = {
   project: ProjectType;
@@ -30,6 +31,8 @@ const Project = ({ project, index, language }: ProjectProps) => {
         <img
           src={project.image}
           alt={language === "pl" ? project.titlePl : project.titleEN}
+          decoding="async"
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
       </div>
@@ -67,7 +70,7 @@ const Project = ({ project, index, language }: ProjectProps) => {
               onClick={(e) => e.stopPropagation()}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
-              <Github size={20} />
+              <SiGithub size={20} />
             </Link>
           </div>
         </div>

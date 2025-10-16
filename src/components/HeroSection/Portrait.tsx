@@ -5,6 +5,8 @@ const Portrait = () => {
         src="/Portrait.png"
         alt="portrait"
         className="mx-auto object-cover profile-glow"
+        width={394}
+        height={576}
       />
     </div>
   );
