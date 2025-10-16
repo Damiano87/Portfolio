@@ -31,7 +31,7 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={cn(
-        "max-sm:hidden z-50 p-2 duration-300 cursor-pointer",
+        "p-2 duration-300 cursor-pointer",
         "focus:outline-hidden rounded-full transition-colors"
       )}
     >

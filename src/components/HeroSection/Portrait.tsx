@@ -1,6 +1,6 @@
 const Portrait = () => {
   return (
-    <div className="aspect-square md:h-[400px] overflow-hidden rounded-full">
+    <div className="aspect-square md:h-[380px] overflow-hidden rounded-full">
       <img
         src="/Portrait.png"
         alt="portrait"

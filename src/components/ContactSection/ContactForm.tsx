@@ -132,19 +132,18 @@ const ContactForm = () => {
         </div>
 
         {/* Submit button */}
-        <div className="btn-wrapper">
-          <button
-            type="submit"
-            disabled={isPending}
-            className={cn(
-              "cosmic-button w-full flex items-center justify-center gap-2",
-              isPending ? "opacity-70 cursor-not-allowed" : ""
-            )}
-          >
-            {isPending ? t.contact.sendingMessage : t.contact.sendMessage}
-            <Send size={16} />
-          </button>
-        </div>
+
+        <button
+          type="submit"
+          disabled={isPending}
+          className={cn(
+            "cosmic-button text-sm w-full flex items-center justify-center gap-2",
+            isPending ? "opacity-70 cursor-not-allowed" : ""
+          )}
+        >
+          {isPending ? t.contact.sendingMessage : t.contact.sendMessage}
+          <Send size={16} />
+        </button>
       </form>
     </motion.div>
   );

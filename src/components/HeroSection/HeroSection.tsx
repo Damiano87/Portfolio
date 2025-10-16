@@ -11,7 +11,7 @@ const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
-      <div className="container mt-24 md:mt-0 flex flex-col items-center gap-10 max-w-4xl space-y-6 mx-auto text-center z-10">
+      <div className="container mt-24 md:mt-0 flex flex-col items-center gap-8 max-w-4xl mx-auto text-center z-10">
         <Portrait />
         <Title t={t} />
       </div>

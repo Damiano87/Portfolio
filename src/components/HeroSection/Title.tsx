@@ -15,7 +15,7 @@ const Title = ({ t }: { t: typeof translations.pl }) => {
         </span>
       </h1>
 
-      <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+      <p className="text-md md:text-md text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
         {t.hero.subtitle}
       </p>
 
