@@ -1,5 +1,5 @@
 import { Briefcase, Code, User } from "lucide-react";
-import { motion } from "motion/react";
+import { domAnimation, LazyMotion, motion } from "motion/react";
 import { use } from "react";
 import { LanguageContext } from "../context/createLanguageContext";
 
@@ -7,98 +7,109 @@ const AboutSection = () => {
   const { t } = use(LanguageContext);
 
   return (
-    <section id="about" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          {t.aboutMe.about} <span className="text-primary">{t.aboutMe.me}</span>
-        </h2>
+    <LazyMotion features={domAnimation}>
+      <section id="about" className="py-24 px-4 relative">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            {t.aboutMe.about}{" "}
+            <span className="text-primary">{t.aboutMe.me}</span>
+          </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{
-              translateX: -20,
-              opacity: 0,
-            }}
-            whileInView={{
-              translateX: 0,
-              opacity: 1,
-              transition: { duration: 2 },
-            }}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl font-semibold">{t.aboutMe.title}</h3>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{
+                translateX: -20,
+                opacity: 0,
+              }}
+              whileInView={{
+                translateX: 0,
+                opacity: 1,
+                transition: { duration: 2 },
+              }}
+              className="space-y-6"
+            >
+              <h3 className="text-2xl font-semibold">{t.aboutMe.title}</h3>
 
-            <p className="text-muted-foreground">{t.aboutMe.firstParagraph}</p>
+              <p className="text-muted-foreground">
+                {t.aboutMe.firstParagraph}
+              </p>
 
-            <p className="text-muted-foreground">{t.aboutMe.secondParagraph}</p>
+              <p className="text-muted-foreground">
+                {t.aboutMe.secondParagraph}
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
-                {t.aboutMe.contact}
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+                <a href="#contact" className="cosmic-button">
+                  {t.aboutMe.contact}
+                </a>
 
-              {/* <Link
+                {/* <Link
                 to={""}
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Pobierz CV
               </Link> */}
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
 
-          <motion.div
-            initial={{
-              translateX: 20,
-              opacity: 0,
-            }}
-            whileInView={{
-              translateX: 0,
-              opacity: 1,
-              transition: { duration: 2 },
-            }}
-            className="grid gap-6"
-          >
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h6 w-6  text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Web Development</h4>
-                  <p className="text-muted-foreground">{t.aboutMe.firstCard}</p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h6 w-6  text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
-                  <p className="text-muted-foreground">
-                    {t.aboutMe.secondCard}
-                  </p>
+            <motion.div
+              initial={{
+                translateX: 20,
+                opacity: 0,
+              }}
+              whileInView={{
+                translateX: 0,
+                opacity: 1,
+                transition: { duration: 2 },
+              }}
+              className="grid gap-6"
+            >
+              <div className="gradient-border p-6 card-hover">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Code className="h6 w-6  text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg"> Web Development</h4>
+                    <p className="text-muted-foreground">
+                      {t.aboutMe.firstCard}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    {t.aboutMe.thirdCardTitle}
-                  </h4>
-                  <p className="text-muted-foreground">{t.aboutMe.thirdCard}</p>
+              <div className="gradient-border p-6 card-hover">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <User className="h6 w-6  text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                    <p className="text-muted-foreground">
+                      {t.aboutMe.secondCard}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+              <div className="gradient-border p-6 card-hover">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Briefcase className="h6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">
+                      {t.aboutMe.thirdCardTitle}
+                    </h4>
+                    <p className="text-muted-foreground">
+                      {t.aboutMe.thirdCard}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </LazyMotion>
   );
 };
 export default AboutSection;

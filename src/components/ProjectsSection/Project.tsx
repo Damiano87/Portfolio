@@ -28,15 +28,19 @@ const Project = ({ project, index, language }: ProjectProps) => {
       className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
     >
       <div className="h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={language === "pl" ? project.titlePl : project.titleEN}
-          decoding="async"
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
+        <picture>
+          <source srcSet={project.image} type="image/webp" />
+          <img
+            src={project.imageFallback}
+            alt={language === "pl" ? project.titlePl : project.titleEN}
+            width={400}
+            height={225}
+            decoding="async"
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        </picture>
       </div>
-
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, index) => (
@@ -48,7 +52,6 @@ const Project = ({ project, index, language }: ProjectProps) => {
             </span>
           ))}
         </div>
-
         <h3 className="text-xl font-semibold mb-1">
           {language === "pl" ? project.titlePl : project.titleEN}
         </h3>

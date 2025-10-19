@@ -1,11 +1,18 @@
+import { lazy } from "react";
 import AboutSection from "../components/AboutSection";
-import ContactSection from "../components/ContactSection/ContactSection";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Navbar from "../components/Navbar/Navbar";
-import ProjectsSection from "../components/ProjectsSection/ProjectsSection";
-import SkillsSection from "../components/SkillsSection";
 import StarBackground from "../components/StarBackground";
+
+// Lazy load
+const SkillsSection = lazy(() => import("../components/SkillsSection"));
+const ProjectsSection = lazy(
+  () => import("../components/ProjectsSection/ProjectsSection")
+);
+const ContactSection = lazy(
+  () => import("../components/ContactSection/ContactSection")
+);
 
 const Home = () => {
   return (

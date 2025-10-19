@@ -1,6 +1,6 @@
 import { use, useState } from "react";
 import { cn } from "../lib/utils";
-import { motion } from "motion/react";
+import { domAnimation, LazyMotion, motion } from "motion/react";
 import {
   SiHtml5,
   SiCss3,
@@ -62,61 +62,63 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          {t.skills.titlePart1}{" "}
-          <span className="text-primary">{t.skills.titlePart2}</span>
-        </h2>
+    <LazyMotion features={domAnimation}>
+      <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            {t.skills.titlePart1}{" "}
+            <span className="text-primary">{t.skills.titlePart2}</span>
+          </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-pointer",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary"
-              )}
-            >
-              {translateCategories(category)}
-            </button>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{
-            translateY: 20,
-            opacity: 0,
-          }}
-          whileInView={{
-            translateY: 0,
-            opacity: 1,
-            transition: { duration: 2 },
-          }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {filteredSkills.map((skill, index) => {
-            const Icon = skill.icon;
-            return (
-              <div
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category, index) => (
+              <button
                 key={index}
-                title={skill.name}
-                className="bg-card p-6 rounded-lg shadow-xs card-hover"
+                onClick={() => setActiveCategory(category)}
+                className={cn(
+                  "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-pointer",
+                  activeCategory === category
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary/70 text-foreground hover:bg-secondary"
+                )}
               >
-                <div className="flex items-center gap-4">
-                  <h3 className="font-semibold text-lg">{skill.name}</h3>
-                  <Icon size={25} />
-                  {skill.name === "HTML/CSS" && <SiCss3 size={25} />}
+                {translateCategories(category)}
+              </button>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{
+              translateY: 20,
+              opacity: 0,
+            }}
+            whileInView={{
+              translateY: 0,
+              opacity: 1,
+              transition: { duration: 2 },
+            }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {filteredSkills.map((skill, index) => {
+              const Icon = skill.icon;
+              return (
+                <div
+                  key={index}
+                  title={skill.name}
+                  className="bg-card p-6 rounded-lg shadow-xs card-hover"
+                >
+                  <div className="flex items-center gap-4">
+                    <h3 className="font-semibold text-lg">{skill.name}</h3>
+                    <Icon size={25} />
+                    {skill.name === "HTML/CSS" && <SiCss3 size={25} />}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+    </LazyMotion>
   );
 };
 export default SkillsSection;
