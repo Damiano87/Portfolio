@@ -2,7 +2,11 @@ const Portrait = () => {
   return (
     <div className="aspect-square md:h-[380px] overflow-hidden rounded-full">
       <picture>
-        <source srcSet="/Portrait.webp" media="(orientation: portrait)" />
+        <source
+          srcSet="/Portrait.webp"
+          media="(orientation: portrait)"
+          type="image/webp"
+        />
         <img
           src="/Portrait.png"
           alt="portrait"

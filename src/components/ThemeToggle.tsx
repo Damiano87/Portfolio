@@ -1,9 +1,12 @@
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { cn } from "../lib/utils";
+import { LanguageContext } from "../context/createLanguageContext";
 
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const { t } = use(LanguageContext);
 
   // get theme on refresh
   useEffect(() => {
@@ -30,6 +33,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
+      aria-label={isDarkMode ? t.aria.themeBtn.light : t.aria.themeBtn.dark}
       className={cn(
         "p-2 duration-300 cursor-pointer",
         "focus:outline-hidden rounded-full transition-colors"

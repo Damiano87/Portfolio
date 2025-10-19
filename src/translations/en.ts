@@ -57,4 +57,14 @@ export const en = {
     messagePlaceholder: "Hi, I want to talk about...",
     sendingMessage: "Sending...",
   },
+  aria: {
+    languageBtn: {
+      polish: "Change to polish",
+      english: "Change to english",
+    },
+    themeBtn: {
+      light: "Light mode",
+      dark: "Dark mode",
+    },
+  },
 };

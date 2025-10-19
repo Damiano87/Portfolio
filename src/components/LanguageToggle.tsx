@@ -5,11 +5,16 @@ import PL from "country-flag-icons/react/3x2/PL";
 import GB from "country-flag-icons/react/3x2/GB";
 
 const LanguageToggle = () => {
-  const { language, toggleLanguage } = use(LanguageContext);
+  const { language, toggleLanguage, t } = use(LanguageContext);
 
   return (
     <button
       onClick={toggleLanguage}
+      aria-label={
+        language === "pl"
+          ? t.aria.languageBtn.english
+          : t.aria.languageBtn.polish
+      }
       className={cn(
         "p-2 duration-300",
         "focus:outline-hidden rounded-full transition-colors cursor-pointer"
