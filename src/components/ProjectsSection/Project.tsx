@@ -63,6 +63,7 @@ const Project = ({ project, index, language }: ProjectProps) => {
             <Link
               to={project.demoUrl}
               target="_blank"
+              aria-label={`Go to live demo of ${project.titleEN} project`}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               <ExternalLink size={20} />
@@ -70,6 +71,7 @@ const Project = ({ project, index, language }: ProjectProps) => {
             <Link
               to={project.githubUrl}
               target="_blank"
+              aria-label={`View source code of ${project.titleEN} project`}
               onClick={(e) => e.stopPropagation()}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >

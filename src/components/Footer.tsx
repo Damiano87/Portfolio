@@ -9,6 +9,7 @@ const Footer = () => {
 
       <a
         href="#hero"
+        aria-label="Scroll to top"
         className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
       >
         <ArrowUp size={20} />
