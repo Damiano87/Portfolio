@@ -90,5 +90,5 @@ Feel free to fork this project and customize it for your own portfolio. If you f
 
 If you'd like to get in touch, you can reach me through the contact form on my portfolio or via:
 - Email: sobe66@gmail.com
-- LinkedIn: [Your Profile](https://www.linkedin.com/in/damian-sobieraj-06627a118)
-- GitHub: [@your-username](https://github.com/Damiano87)
+- LinkedIn: [My Profile](https://www.linkedin.com/in/damian-sobieraj-06627a118)
+- GitHub: [@My github](https://github.com/Damiano87)
