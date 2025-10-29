@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# Portfolio Website 💼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My personal portfolio website showcasing my projects and skills. Built with modern web technologies and deployed on Vercel.
 
-Currently, two official plugins are available:
+## 📋 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is my portfolio website designed to present my work as a developer. The site features a clean, modern design with full internationalization support and theme customization options.
 
-## React Compiler
+🔗 **Live Demo:** https://damian-portfolio-nine.vercel.app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Technologies
 
-## Expanding the ESLint configuration
+- **React.js** - library for building user interfaces
+- **Vite.js** - fast build tool and dev server
+- **Tailwind CSS** - utility-first CSS framework
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 📱 Fully responsive design
+- 🌍 Language switching (Polish/English)
+- 🌓 Dark/Light theme toggle
+- ⚡ Fast performance with Vite
+- 🎨 Modern UI with Tailwind CSS
+- 📧 Contact form integration
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📄 Sections
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **About Me** - Introduction and professional background
+- **Skills** - Technical skills and technologies I work with
+- **Projects** - Showcase of my development projects
+- **Contact** - Ways to get in touch with me
+
+## 🎯 Running the Application
+
+### Development Mode
+```bash
+npm run dev
+```
+The application will start at `http://localhost:5173`
+
+### Production Build
+```bash
+npm run build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 Deployment
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The website is deployed on Vercel and automatically updates with each push to the main branch.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Project Structure
+
 ```
+portfolio/
+├── src/
+│   ├── components/    # React components
+│   ├── translations/       # Translation files
+│   ├── App.jsx        # Main app component
+│   └── main.jsx       # Entry point
+├── public/            # Images and static files
+└── package.json
+```
+
+## 🎨 Theme & Localization
+
+### Theme Switching
+The application supports both light and dark themes. Theme preference is saved to localStorage and persists across sessions.
+
+### Language Support
+Available languages:
+- 🇵🇱 Polish (Polski)
+- 🇬🇧 English
+
+Language preference is also saved to localStorage.
+
+## 🛠️ Development
+
+Future enhancements:
+- [ ] Downloadable resume/CV
+
+## 👤 Author
+
+Your Name - [GitHub](https://github.com/Damiano87) | [LinkedIn](https://www.linkedin.com/in/damian-sobieraj-06627a118)
+
+## 🤝 Contributing
+
+Feel free to fork this project and customize it for your own portfolio. If you find any bugs or have suggestions for improvements, please open an issue!
+
+## 📧 Contact
+
+If you'd like to get in touch, you can reach me through the contact form on my portfolio or via:
+- Email: sobe66@gmail.com
+- LinkedIn: [Your Profile](https://www.linkedin.com/in/damian-sobieraj-06627a118)
+- GitHub: [@your-username](https://github.com/Damiano87)
